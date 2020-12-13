@@ -20,7 +20,7 @@ public class CollageCreator {
     private KeyHandler keyHandler;
     private double exportScale;
 
-    private final int MAX_COLUMN_ITEMS = 10;
+    private final int MAX_COLUMN_ITEMS = 15;
 
     public CollageCreator(Format resolution) {
         this.selectedIndex = -1;
@@ -65,14 +65,18 @@ public class CollageCreator {
     }
 
     private void calculateRowsAndCols() {
+        System.out.println("Amount of images::"+images.length);
         while (rows * cols != images.length) {
             cols++;
             if (cols > MAX_COLUMN_ITEMS) {
                 cols = 1;
                 rows++;
             }
-            if (rows > 10) {
-                throw new Error("Couldn't find a good combination");
+            if (rows > MAX_COLUMN_ITEMS) {
+                System.out.println(cols);
+                System.out.println(rows);
+                System.err.println("Couldn't find a good combination");
+                System.exit(1);
             }
         }
         System.out.println("Rows::" + rows + "-Cols::" + cols);
