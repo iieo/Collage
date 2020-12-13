@@ -147,11 +147,13 @@ public class OptionFrame extends JFrame implements ActionListener {
             double exportScale = Double.valueOf(scale.getText());
             collageCreator.setResolution(new Format(resWidth, resHeight));
             collageCreator.setExportScale(exportScale);
-            boolean acceptedRowCol = collageCreator.setRowsAndCols(rowsAmount, colsAmount);
-            if(acceptedRowCol){
-                lblError.setText(null);
-            }else{
-                lblError.setText("Rows and Columns ratio not accepted!");
+            if(rowsAmount != collageCreator.getRows() || colsAmount != collageCreator.getCols()) {
+                boolean acceptedRowCol = collageCreator.setRowsAndCols(rowsAmount, colsAmount);
+                if (acceptedRowCol) {
+                    lblError.setText(null);
+                } else {
+                    lblError.setText("Rows and Columns ratio not accepted!");
+                }
             }
         }
     }

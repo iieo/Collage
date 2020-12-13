@@ -15,7 +15,7 @@ public class FileHandler {
     public static String chooseOutputImage(){
         FileDialog fd = new FileDialog(new JFrame(), "Save", FileDialog.SAVE);
         fd.setMultipleMode(false);
-        fd.setFile("collection.png");
+        fd.setFile("collage.png");
         fd.setVisible(true);
         return fd.getFiles()[0].getAbsolutePath();
     }

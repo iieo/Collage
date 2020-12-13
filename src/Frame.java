@@ -127,7 +127,7 @@ public class Frame extends JFrame implements ActionListener, MouseListener {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            JOptionPane.showMessageDialog(null, "Export finished!");
+            JOptionPane.showMessageDialog(this, "Export finished!");
             System.out.println("Exported!");
         } else if (event.getSource().equals(createImage)) {
             //not existing
